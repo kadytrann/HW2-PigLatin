@@ -2,81 +2,84 @@
 HW 2 - Pig Latin
 Kady Tran
 
-
 - If a word begins with a vowel, the letter remains in place and 'way' is appended to the end of the word
 - If a word begins with one consonant, that letter is moved to the end and 'ay' is appended
 - If a word begins with two consonants, both letters are moved to the end and 'ay' is appended
 -->
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Pig Latin Translator</title>
-  <meta name="viewport" content="width=device-width">
-  <link rel="stylesheet" href="main.css">
-  <script>
-    function translateToPigLatin() {
-      var input = document.getElementById("input").value.trim().toLowerCase();
 
-      // Check if the input is empty or a single letter
-      if (input === "" || input.length === 1) {
-        alert("Error. Please enter a word/phrase.");
-        return;
-      }
+  <head>
+    <title>Pig Latin Translator</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="main.css">
+    <script>
+      function translateToPigLatin() {
+        var input = document.getElementById("input").value.trim().toLowerCase();
 
-      var words = input.split(" ");
-      var translatedWords = [];
-
-      // Iterate over each word
-      for (var i = 0; i < words.length; i++) {
-        var word = words[i];
-
-        // Check if the word starts with a vowel
-        if (isVowel(word[0])) {
-          translatedWords.push(word + "way");
+        // Check if the input is empty or a single letter
+        if (input === "" || input.length === 1) {
+          alert("Error. Please enter a word/phrase.");
+          return;
         }
-        // Check if the word starts with a consonant
-        else if (isConsonant(word[0])) {
-          // Check if the word starts with two consonants
-          if (isConsonant(word[1])) {
-            translatedWords.push(word.substr(2) + word.substr(0, 2) + "ay");
-          } else {
-            translatedWords.push(word.substr(1) + word[0] + "ay");
+
+        var words = input.split(" ");
+        var translatedWords = [];
+
+        // Iterate over each word
+        for (var i = 0; i < words.length; i++) {
+          var word = words[i];
+
+          // Check if the word starts with a vowel
+          if (isVowel(word[0])) {
+            translatedWords.push(word + "way");
+          }
+          // Check if the word starts with a consonant
+          else if (isConsonant(word[0])) {
+            // Check if the word starts with two consonants
+            if (isConsonant(word[1])) {
+              translatedWords.push(word.substr(2) + word.substr(0, 2) + "ay");
+            } else {
+              translatedWords.push(word.substr(1) + word[0] + "ay");
+            }
           }
         }
+
+        var output = translatedWords.join(" ");
+        document.getElementById("output").textContent = output;
       }
 
-      var output = translatedWords.join(" ");
-      document.getElementById("output").textContent = output;
-    }
+      // Function to check if a character is a vowel
+      function isVowel(char) {
+        return ["a", "e", "i", "o", "u"].includes(char);
+      }
 
-    // Function to check if a character is a vowel
-    function isVowel(char) {
-      return ["a", "e", "i", "o", "u"].includes(char);
-    }
+      // Function to check if a character is a consonant
+      function isConsonant(char) {
+        return !isVowel(char);
+      }
 
-    // Function to check if a character is a consonant
-    function isConsonant(char) {
-      return !isVowel(char);
-    }
-  </script>
-</head>
-<header>
-  <h1 class="page-header">Pig Latin Translator</h1>
-</header>
-<main class="wrapper">
-<body>
-  <p>Welcome to my Pig Latin Translator page! The purpose of this page is to translate a word or a phrase into Pig Latin.</p>
-  <li>If a word that begins with a vowel, "way" will be added to the end of the word.</li>
-  <li>If a word begins with one consonant, that letter moves to the end and "ay" will be added to the end of the word.</li>
-  <li>If a word begins with two consonants, both letters are moved to the end and "ay" will be added to the end of the word.</li>
-  <p>Have fun translating!</p>
-  <label for="Word">Enter a word/phrase:</label><br>
-  <input type="text" id="input">
-  <button id="translate-btn" onclick="translateToPigLatin()">Translate</button>
-  <h3>Translation:</h3>
-  <div id="output"></div>
-</body>
-<footer>
-  <div></div>
-</footer>
+    </script>
+  </head>
+  <header>
+    <h1 class="page-header">Pig Latin Translator</h1>
+  </header>
+  <main class="wrapper">
+
+    <body>
+      <p>Welcome to my Pig Latin Translator page! The purpose of this page is to translate a word or a phrase into Pig Latin.</p>
+      <li>If a word that begins with a vowel, "way" will be added to the end of the word.</li>
+      <li>If a word begins with one consonant, that letter moves to the end and "ay" will be added to the end of the word.</li>
+      <li>If a word begins with two consonants, both letters are moved to the end and "ay" will be added to the end of the word.</li>
+      <p>Have fun translating!</p>
+      <label for="Word">Enter a word/phrase:</label><br>
+      <input type="text" id="input">
+      <button id="translate-btn" onclick="translateToPigLatin()">Translate</button>
+      <h3>Translation:</h3>
+      <div id="output"></div>
+    </body>
+    <footer>
+      <div></div>
+    </footer>
+
 </html>

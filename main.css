@@ -10,9 +10,9 @@
   font-size: 16px;
   color: rgb(210, 53, 210);
   margin-bottom: 10px;
-  width: 80%; 
+  width: 80%;
   box-sizing: border-box;
-  resize: vertical; 
+  resize: vertical;
 }
 
 #input:focus {
@@ -47,7 +47,7 @@ html {
 body {
   margin: 30;
   /* removes gap at top of page */
-  color:rgb(210, 53, 210);
+  color: rgb(210, 53, 210);
   text-align: center;
 }
 
