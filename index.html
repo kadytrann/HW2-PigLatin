@@ -12,8 +12,7 @@ Kady Tran
 <head>
   <title>Pig Latin Translator</title>
   <meta name="viewport" content="width=device-width">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="main.css">
   <script>
     function translateToPigLatin() {
       var input = document.getElementById("input").value.trim().toLowerCase();
@@ -66,9 +65,14 @@ Kady Tran
 </header>
 <main class="wrapper">
 <body>
+  <p>Welcome to my Pig Latin Translator page! The purpose of this page is to translate a word or a phrase into Pig Latin.</p>
+  <li>If a word that begins with a vowel, "way" will be added to the end of the word.</li>
+  <li>If a word begins with one consonant, that letter moves to the end and "ay" will be added to the end of the word.</li>
+  <li>If a word begins with two consonants, both letters are moved to the end and "ay" will be added to the end of the word.</li>
+  <p>Have fun translating!</p>
   <label for="Word">Enter a word/phrase:</label><br>
   <input type="text" id="input">
-  <button onclick="translateToPigLatin()">Translate</button>
+  <button id="translate-btn" onclick="translateToPigLatin()">Translate</button>
   <h3>Translation:</h3>
   <div id="output"></div>
 </body>

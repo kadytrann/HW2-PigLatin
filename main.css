@@ -1,24 +1,53 @@
 /*Global Rules */
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap');
 
+
+#input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-color: plum;
+  border-radius: 15px;
+  font-size: 16px;
+  color: rgb(210, 53, 210);
+  margin-bottom: 10px;
+  width: 80%; 
+  box-sizing: border-box;
+  resize: vertical; 
+}
+
+#translate-btn {
+  padding: 10px 20px;
+  background-color: plum;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+#translate-btn:hover {
+  background-color: rgb(218, 190, 218);
+}
+
 html {
   background-color: lightgray;
   font-family: 'Quicksand', sans-serif;
   font-size: 0.95em;
   line-height: 1.5em;
-  background-image: url("../images/background.jpg");
+  background-image: url("images/background.jpg");
   background-repeat: repeat;
   background-size: 1620px 830px;
 }
 
 body {
-  margin: 0;
+  margin: 30;
   /* removes gap at top of page */
+  color:rgb(210, 53, 210);
+  text-align: center;
 }
 
 ::selection {
-  color: #000;
-  background: lightpink;
+  color: rgb(210, 53, 210);
+  background: rgb(218, 190, 218);
 }
 
 h1 {
@@ -60,17 +89,6 @@ h3 {
   font-weight: normal;
   margin-left: 1em;
   line-height: 1em;
-}
-
-a {
-  color: darkcyan;
-  text-decoration: none;
-}
-
-a:hover {
-  color: whitesmoke;
-  background-color: darkcyan;
-  text-decoration: none;
 }
 
 footer {
