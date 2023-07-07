@@ -15,6 +15,12 @@
   resize: vertical; 
 }
 
+#input:focus {
+  outline: none;
+  border-color: palevioletred;
+  box-shadow: 0 0 5px palevioletred;
+}
+
 #translate-btn {
   padding: 10px 20px;
   background-color: plum;
