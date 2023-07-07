@@ -1,58 +1,77 @@
+<!--
+HW 2 - Pig Latin
+Kady Tran
+
+
+- If a word begins with a vowel, the letter remains in place and 'way' is appended to the end of the word
+- If a word begins with one consonant, that letter is moved to the end and 'ay' is appended
+- If a word begins with two consonants, both letters are moved to the end and 'ay' is appended
+-->
 <!DOCTYPE html>
-<html lang="en">
- <head>
-     <title>HW 2 - Pig Latin</title>
-  <meta charset="utf-8">
+<html>
+<head>
+  <title>Pig Latin Translator</title>
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/forms.css">
- </head>
- <body>
-     <header>
-     <h1 class="page-header">Pig Latin Translator</h1>
-     
-<!--
-        <nav class="topnav" id="myTopnav">
+  <script>
+    function translateToPigLatin() {
+      var input = document.getElementById("input").value.trim().toLowerCase();
 
-            <a href="index.html" class="active">Home</a>
-            <a href="#">Link</a>
-            <a href="#">Link</a>
-            <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
-        </nav>
+      // Check if the input is empty or a single letter
+      if (input === "" || input.length === 1) {
+        alert("Error. Please enter a word/phrase.");
+        return;
+      }
 
--->
-     </header>
-     
-   <main class="wrapper">
- 
-   <!-- <h2 class="subheader">Place form code below:</h2> -->
-    <form method="get" action="" class="main-form">
-    <div>
-    <label for="Word">Enter a word/phrase:</label><br>
-      <input type="text" name="Word" id="Word" placeholder="Word/phrase" required autofocus>
-    </div>
-    <div>
-    </div>
-      <input type="submit" value="Submit">
-     </form>
+      var words = input.split(" ");
+      var translatedWords = [];
 
-     <!--
-    <p>form goes here</p>
-    <h3>Page Origins</h3>
-    -->
-    <footer>
-    <!-- 
-      <p><small>&copy; 2023 by 
-          Kady Tran, All Rights Reserved ~ 
+      // Iterate over each word
+      for (var i = 0; i < words.length; i++) {
+        var word = words[i];
 
+        // Check if the word starts with a vowel
+        if (isVowel(word[0])) {
+          translatedWords.push(word + "way");
+        }
+        // Check if the word starts with a consonant
+        else if (isConsonant(word[0])) {
+          // Check if the word starts with two consonants
+          if (isConsonant(word[1])) {
+            translatedWords.push(word.substr(2) + word.substr(0, 2) + "ay");
+          } else {
+            translatedWords.push(word.substr(1) + word[0] + "ay");
+          }
+        }
+      }
 
-          <a id="html-checker" href="#" target="_blank">Check HTML</a> ~ 
-          <a id="css-checker" href="#" target="_blank">Check CSS</a></small>
+      var output = translatedWords.join(" ");
+      document.getElementById("output").textContent = output;
+    }
 
-     </p>
-     -->
-    </footer>
-  </main>
-  <script src="js/main.js"></script>   
- </body>
+    // Function to check if a character is a vowel
+    function isVowel(char) {
+      return ["a", "e", "i", "o", "u"].includes(char);
+    }
+
+    // Function to check if a character is a consonant
+    function isConsonant(char) {
+      return !isVowel(char);
+    }
+  </script>
+</head>
+<header>
+  <h1 class="page-header">Pig Latin Translator</h1>
+</header>
+<main class="wrapper">
+<body>
+  <label for="Word">Enter a word/phrase:</label><br>
+  <input type="text" id="input">
+  <button onclick="translateToPigLatin()">Translate</button>
+  <h3>Translation:</h3>
+  <div id="output"></div>
+</body>
+<footer>
+  <div></div>
+</footer>
 </html>
